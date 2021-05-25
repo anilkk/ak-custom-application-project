@@ -28,8 +28,13 @@ const Project = (props) => (
       query={GetProjectQuery}  
       context={{target}}
     >
-    {() => {
-        
+    {({ loading, error, data }) => {
+        if (loading) return 'Loading...';
+        if (error) return `Error! ${error.message}`;
+
+        return (
+            <Text.Headline as="h1">{`${data.project.name}`}</Text.Headline>
+        );
     }}
     </Query>
 );
