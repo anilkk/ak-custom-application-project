@@ -1,0 +1,7 @@
+query GetProjectQuery {
+  project {
+    name
+    languages
+    createdAt
+  }
+}
