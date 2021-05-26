@@ -9,6 +9,7 @@ import FlatButton from '@commercetools-uikit/flat-button';
 import ViewOne from '../view-one';
 import ViewTwo from '../view-two';
 import ViewThree from '../view-three';
+import ViewFour from '../view-four';
 import messages from './messages';
 import styles from './main-view.mod.css';
 
@@ -40,12 +41,19 @@ const MainView = (props) => {
               icon={<ConnectedTriangleIcon />}
               label={intl.formatMessage(messages.labelLinkThree)}
             />
+            <FlatButton
+              as={Link}
+              to={`${props.match.url}/four`}
+              icon={<ConnectedTriangleIcon />}
+              label={intl.formatMessage(messages.labelLinkFour)}
+            />
           </Spacings.Inline>
         </div>
         <Switch>
           <Route path={`${props.match.path}/one`} component={ViewOne} />
           <Route path={`${props.match.path}/two`} component={ViewTwo} />
           <Route path={`${props.match.path}/three`} component={ViewThree} />
+          <Route path={`${props.match.path}/four`} component={ViewFour} />
         </Switch>
       </Spacings.Stack>
     </Spacings.Inset>

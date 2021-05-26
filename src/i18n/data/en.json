@@ -2,8 +2,10 @@
   "MainView.labelLinkOne": "Page one",
   "MainView.labelLinkTwo": "Page two",
   "MainView.labelLinkThree": "Page three",
+  "MainView.labelLinkFour": "Page four",
   "MainView.title": "Custom Application Training",
   "ViewOne.title": "We are in the view one",
   "ViewTwo.title": "View two",
-  "ViewThree.title": "We are in view three"
+  "ViewThree.title": "We are in view three",
+  "ViewFour.title": "We are in view three"
 }

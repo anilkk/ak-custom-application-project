@@ -1,0 +1,9 @@
+query GetCustomObjectsByContainer ($container: String!) {
+  customObjects(container: $container) {
+    results {
+      container
+      key
+      value
+    }
+  }
+}
