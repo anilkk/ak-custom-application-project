@@ -1,0 +1,9 @@
+query GetCustomers {
+  customers {
+    results {
+      email
+      firstName
+      companyName
+    }
+  }
+}

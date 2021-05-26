@@ -8,6 +8,7 @@ import Spacings from '@commercetools-uikit/spacings';
 import FlatButton from '@commercetools-uikit/flat-button';
 import ViewOne from '../view-one';
 import ViewTwo from '../view-two';
+import ViewThree from '../view-three';
 import messages from './messages';
 import styles from './main-view.mod.css';
 
@@ -44,7 +45,7 @@ const MainView = (props) => {
         <Switch>
           <Route path={`${props.match.path}/one`} component={ViewOne} />
           <Route path={`${props.match.path}/two`} component={ViewTwo} />
-          <Route path={`${props.match.path}/three`} component={ViewTwo} />
+          <Route path={`${props.match.path}/three`} component={ViewThree} />
         </Switch>
       </Spacings.Stack>
     </Spacings.Inset>

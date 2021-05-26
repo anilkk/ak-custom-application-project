@@ -1,10 +1,10 @@
 {
   "name": "Custom Application Template Starter",
-  "entryPointUriPath": "examples-starter",
+  "entryPointUriPath": "anil-sample-custom-app",
   "cloudIdentifier": "gcp-eu",
   "env": {
     "production": {
-      "url": "https://<your_app_hostname>"
+      "url": "https://anil-demo-custom-app.vercel.app"
     }
   }
 }

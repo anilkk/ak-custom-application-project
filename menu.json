@@ -1,6 +1,6 @@
 {
-  "key": "examples-starter",
-  "uriPath": "examples-starter",
+  "key": "anil-sample-custom-app",
+  "uriPath": "anil-sample-custom-app",
   "icon": "RocketIcon",
   "permissions": ["ViewProducts"],
   "featureToggle": null,
