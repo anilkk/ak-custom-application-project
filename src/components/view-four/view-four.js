@@ -9,7 +9,7 @@ import SpacingsStack from '@commercetools-uikit/spacings-stack';
 import FlatButton from '@commercetools-uikit/flat-button';
 import FieldLabel from '@commercetools-uikit/field-label';
 import { GRAPHQL_TARGETS, MC_API_PROXY_TARGETS } from '@commercetools-frontend/constants';
-import { actions as sdkActions } from '@commercetools-frontend/sdk';
+import { actions as sdkActions, useAsyncDispatch } from '@commercetools-frontend/sdk';
 import messages from './messages';
 import { GetCustomObjectsByContainer } from './get-customobjectsbycontainer.graphql';
 import { AddCustomObject } from './add-customobject.graphql';
@@ -57,16 +57,27 @@ const ViewFour = () => {
     const [addCustomObject, { data }] = useMutation(AddCustomObject);
     const [deleteCustomObject] = useMutation(DeleteCustomObject);
 
+    const dispatch = useAsyncDispatch();
+
     const handleAddCustomObject = async () => {
-        await addCustomObject({variables: {
-            target: GRAPHQL_TARGETS.COMMERCETOOLS_PLATFORM,
-            "customObjectDraft": {
-                "key": "key-anil", 
-                "container": "demo-container",
-                "value": "\"value-anil\""
+        // await addCustomObject({variables: {
+        //     target: GRAPHQL_TARGETS.COMMERCETOOLS_PLATFORM,
+        //     "customObjectDraft": {
+        //         "key": "key-anil", 
+        //         "container": "demo-container",
+        //         "value": "\"value-anil\""
+        //     }
+        // }})
+        // console.log('RESULT -->', data);
+        dispatch(sdkActions.post({
+            mcApiProxyTarget: MC_API_PROXY_TARGETS.COMMERCETOOLS_PLATFORM,
+            service: 'customObjects',
+            payload: {
+                key: "key-dispatch",
+                value: "value-dispatch",
+                container: "demo-container",
             }
-        }})
-        console.log('RESULT -->', data);
+        }));
         setAddCustomObjIsOpen(false);
     };
 
