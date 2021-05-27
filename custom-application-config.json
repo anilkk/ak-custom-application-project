@@ -6,5 +6,10 @@
     "production": {
       "url": "https://anil-demo-custom-app.vercel.app"
     }
+  },
+  "headers": {
+    "csp": {
+      "connect-src": ["api.github.com"]
+    }
   }
 }

@@ -60,20 +60,30 @@ const ViewFour = () => {
     const dispatch = useAsyncDispatch();
 
     React.useEffect(async () => {
-        const result = await dispatch(
-            // The URL to your external API
-            sdkActions.forwardTo.post({
-                uri: 'https://countries.trevorblades.com',
-                payload: { query: `query {
-                    countries {
-                      name
-                    }
-                  }`
-                }
-              })
-          );
+        // const result = await dispatch(
+        //     // The URL to your external API
+        //     // sdkActions.forwardTo.post({
+        //     //     uri: 'https://countries.trevorblades.com',
+        //     //     payload: { query: `query {
+        //     //         countries {
+        //     //           name
+        //     //         }
+        //     //       }`
+        //     //     }
+        //     //   })            
+        //     // sdkActions.forwardTo.get({
+        //     //     uri: 'https://q98dj3ldg0.execute-api.eu-central-1.amazonaws.com/default/myMcTestApp?name=anilkk'
+        //     // })
+        //   );
+          const result = await fetch('https://api.github.com/user?username=anilkk', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer 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'
+            }
+          });
           // do something with the result
-          console.info(`%c ${JSON.stringify(result.data.countries)}`, "color: green");
+          // console.info(`%c ${JSON.stringify(result.data.countries)}`, "color: green");
+          console.info(`%c ${JSON.stringify(result)}`, "color: green");
     }, []);
 
     const handleAddCustomObject = async () => {
