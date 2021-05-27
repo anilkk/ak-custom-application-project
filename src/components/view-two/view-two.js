@@ -40,10 +40,28 @@ const Project = (props) => (
 );
 
 const ViewTwo = () => {
+  const [userData, setUserData] = React.useState(null);
+  React.useEffect(async () => {
+    if (!userData) {
+      await fetch('https://api.github.com/user', {
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer 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'
+        }
+      })
+      .then(result => {
+        setUserData(result);
+        console.log('RESULT ---->', JSON.stringify(result));
+      })
+
+    }
+  }, []);
+
     return (
         <div>
             <Text.Body intlMessage={messages.title} />
             <Project />
+            {userData && JSON.stringify(userData)}
         </div>
     );
 };
