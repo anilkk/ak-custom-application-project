@@ -78,7 +78,7 @@ const ViewFour = () => {
           const result = await fetch('https://api.github.com/user?username=anilkk', {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer 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'
+                'Authorization': 'Bearer access_token'
             }
           });
           // do something with the result
