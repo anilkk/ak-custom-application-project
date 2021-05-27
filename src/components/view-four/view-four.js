@@ -53,11 +53,28 @@ const ViewFour = () => {
     const [container, setContainer] = React.useState('');
     const [deleteContainer, setDeleteContainer] = React.useState('');
     const [ addCustomObjIsOpen, setAddCustomObjIsOpen] = React.useState(false);
-    const [ deleteCustomObjIsOpen, setDeleteCustomObjIsOpen] = React.useState(true);
+    const [ deleteCustomObjIsOpen, setDeleteCustomObjIsOpen] = React.useState(false);
     const [addCustomObject, { data }] = useMutation(AddCustomObject);
     const [deleteCustomObject] = useMutation(DeleteCustomObject);
 
     const dispatch = useAsyncDispatch();
+
+    React.useEffect(async () => {
+        const result = await dispatch(
+            // The URL to your external API
+            sdkActions.forwardTo.post({
+                uri: 'https://countries.trevorblades.com',
+                payload: { query: `query {
+                    countries {
+                      name
+                    }
+                  }`
+                }
+              })
+          );
+          // do something with the result
+          console.info(`%c ${JSON.stringify(result.data.countries)}`, "color: green");
+    }, []);
 
     const handleAddCustomObject = async () => {
         // await addCustomObject({variables: {
