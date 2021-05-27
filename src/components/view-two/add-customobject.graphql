@@ -1,0 +1,7 @@
+mutation AddCustomObject ( $customObjectDraft:  CustomObjectDraft!) {
+  createOrUpdateCustomObject (draft: $customObjectDraft) {
+    container
+    key
+    value
+  }
+}
