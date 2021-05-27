@@ -1,0 +1,7 @@
+mutation DeleteCustomObject ($key: String, $container: String) {
+  deleteCustomObject (key: $key, container: $container) {
+    container
+    key
+    id
+  }
+}
